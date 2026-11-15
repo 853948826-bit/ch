@@ -1,0 +1,60 @@
+{
+  "port": 8765,
+  "intervals": {
+    "fast": 2,
+    "ps_idle": 3,
+    "ps_alert": 1,
+    "slow": 30,
+    "ps_full": 15
+  },
+  "cpu": {
+    "hog_pct": 85,
+    "sustain_s": 6,
+    "watch_pct": 50
+  },
+  "disk": {
+    "warn_pct": 5,
+    "warn_gb": 10
+  },
+  "mem": {
+    "rss_abs_gb": 6,
+    "leak_mb": 800,
+    "leak_window_s": 20,
+    "track_min_mb": 200
+  },
+  "load_factor": 1.5,
+  "hung_s": 5,
+  "stopped_s": 6,
+  "zombie_s": 4,
+  "cooldown_s": 120,
+  "oneshot_ttl_s": 600,
+  "ignore_procs": [
+    "kernel_task",
+    "WindowServer",
+    "mds_stores",
+    "mdworker_shared",
+    "System",
+    "Registry",
+    "Memory Compression",
+    "Secure System"
+  ],
+  "watch": [
+    "run/watch/*.log"
+  ],
+  "portal": {
+    "base_url": "https://accounts.wanyouzhiliu.cn",
+    "client_id": "jkrOQPuHDgDjaDbyqbKIZUVZMZuIAQjs",
+    "issuer": "https://accounts.wanyouzhiliu.cn/api/auth",
+    "resource": "https://accounts.wanyouzhiliu.cn/products/cyber-clinic",
+    "authorize_path": "/api/auth/oauth2/authorize",
+    "token_path": "/api/auth/oauth2/token",
+    "revoke_path": "/api/auth/oauth2/revoke",
+    "entitlements_path": "/api/products/v1/cyber-clinic/entitlements",
+    "account_url": "/account/#products",
+    "scope": "product:read offline_access",
+    "refresh_hours": 0.5
+  },
+  "store": {
+    "paywall": true
+  }
+}

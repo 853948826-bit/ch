@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>智能体设置</title>
+<link rel="stylesheet" href="settings.css">
+</head>
+<body>
+<main>
+  <h1>智能体设置</h1>
+  <p class="hint">不配置也能用：断网、没有密钥、超出预算时，自动改用本地规则诊断。</p>
+
+  <section>
+    <h2>服务</h2>
+    <label>提供方<select id="provider"></select></label>
+    <label id="row-base">接口地址<input id="base_url" placeholder="https://…/v1"></label>
+    <label>API 密钥<input id="key" type="password" autocomplete="off" spellcheck="false"></label>
+    <p class="hint">密钥只保存在本机 ~/.cyberclinic/secrets.json（仅当前用户可读），不会写进日志、皮肤包或仓库，只发给上面选的提供方。</p>
+    <div class="row"><button id="test">测试连接</button><button id="clear-key" class="ghost">清除密钥</button><span id="test-out"></span></div>
+  </section>
+
+  <section>
+    <h2>模型</h2>
+    <label>对话模型<input id="model_chat" list="models"></label>
+    <label>诊断模型<input id="model_diag" list="models"></label>
+    <label>深度分析模型<input id="model_deep" list="models"></label>
+    <datalist id="models"></datalist>
+    <label class="check"><input id="thinking" type="checkbox">思考模式（更准但更慢、更贵，对话建议关闭）</label>
+    <label>超时（秒）<input id="timeout_s" type="number" min="3" max="30"></label>
+  </section>
+
+  <section>
+    <h2>预算</h2>
+    <label>每小时最多调用<input id="calls_per_hour" type="number" min="1" max="1000"></label>
+    <label>每日金额上限（美元）<input id="daily_usd" type="number" min="0" step="0.1"></label>
+    <p class="hint" id="price-note"></p>
+    <p class="hint" id="usage"></p>
+  </section>
+
+  <section>
+    <h2>角色</h2>
+    <p class="hint">留空就用当前皮肤自带的角色设定。这里只影响说话风格，不影响权限与安全规则。</p>
+    <label>名字<input id="p_name" placeholder="如：露米"></label>
+    <label>自称<input id="p_self" placeholder="如：露米 / 本护士"></label>
+    <label>称呼你<input id="p_call_user" placeholder="如：主人 / 你 / 前辈"></label>
+    <label>语气<input id="p_tone" placeholder="如：温柔可靠、带一点可爱"></label>
+    <label>回复长度<select id="p_length"><option value="short">简短</option><option value="normal">标准</option><option value="long">详细</option></select></label>
+  </section>
+
+  <section>
+    <h2>行为</h2>
+    <label>主动程度<select id="proactive">
+      <option value="quiet">只在被叫时说话</option><option value="alert">异常时主动提醒</option></select></label>
+    <label>发给模型的数据<select id="privacy">
+      <option value="basic">基础：系统指标、进程名、异常证据</option><option value="logs">另含日志片段（已脱敏）</option></select></label>
+    <p class="hint">修复范围：结束进程、释放端口等默认先经你确认；驱动、系统设置、删除文件只给指引，不执行。</p>
+  </section>
+
+  <section>
+    <h2>自动修复（免确认）</h2>
+    <p class="hint">默认全部关闭。打开后，下列情况不再等你点按钮，处理完会告诉你做了什么；同一问题 10 分钟内复发、或一小时内自动处理过多，会自动暂停并改回请你确认。</p>
+    <label class="check"><input id="af_agent_loop" type="checkbox">智能体/脚本里的死循环持续 2 分钟以上：结束该进程</label>
+    <label class="check"><input id="af_resume_stopped" type="checkbox">进程被意外挂起：恢复运行（仅 macOS）</label>
+    <label class="check"><input id="af_dev_port" type="checkbox">开发服务反复占用同一端口：结束占着端口的旧进程</label>
+  </section>
+
+  <div class="actions"><span id="save-out"></span><button id="save" class="primary">保存</button></div>
+</main>
+<script src="settings.js"></script>
+</body>
+</html>

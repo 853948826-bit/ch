@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+run/
+reports/*.json
+sprite/build/
+.env
+.DS_Store
+skins/*.local/
+tools/skinkit
+build/
+dist/
+*.egg-info/
+desktop/src-tauri/target/
+*.tmp
+.k/secrets.local.json
+ip/

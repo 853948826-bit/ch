@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "cyber-clinic": {
+      "command": "python3",
+      "args": ["-m", "clinic.mcp_server"],
+      "cwd": "/path/to/cyber-clinic"
+    }
+  }
+}

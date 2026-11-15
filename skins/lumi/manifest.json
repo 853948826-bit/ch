@@ -1,0 +1,177 @@
+{
+ "name": "露米 Lumi",
+ "author": "Cyber Clinic",
+ "source": "本地图片",
+ "preset": "护士型",
+ "viewBox": [
+  200,
+  320
+ ],
+ "show_led": false,
+ "eye_track": false,
+ "interaction_zones": {
+  "click_chest": [0.43, 0.255, 0.675, 0.35]
+ },
+ "whole_states": [
+  "eyes_closed",
+  "eyes_happy",
+  "eyes_surprised",
+  "eyes_worried"
+ ],
+ "anchors": {
+  "head": [
+   100.0,
+   160.0
+  ],
+  "body": [
+   100.0,
+   312
+  ],
+  "led": [
+   100.0,
+   10
+  ]
+ },
+ "palette": {
+  "accent": "#2fd4e6"
+ },
+ "layers": {
+  "eyes_happy": "eyes_happy.svg",
+  "eyes_worried": "eyes_worried.svg",
+  "eyes_surprised": "eyes_surprised.svg",
+  "eyes_closed": "eyes_closed.svg",
+  "hair_back": "hair_back.svg",
+  "arm_l": "arm_l.svg",
+  "arm_r": "arm_r.svg",
+  "face": "face.svg",
+  "blush": "blush.svg",
+  "eyes_open": "eyes_open.svg",
+  "mouth_smile": "mouth_smile.svg",
+  "mouth_open": "mouth_open.svg",
+  "mouth_cat": "mouth_cat.svg",
+  "mouth_worried": "mouth_worried.svg",
+  "mouth_o": "mouth_o.svg",
+  "bangs": "bangs.svg",
+  "cap": "cap.svg",
+  "body": "body.svg",
+  "pose_wave": "pose_wave.svg",
+  "pose_cheer": "pose_cheer.svg",
+  "pose_wink": "pose_wink.svg",
+  "pose_think": "pose_think.svg",
+  "holo": "holo.svg"
+ },
+ "sounds": {},
+ "lines": {
+  "poke": [
+   "呀！被戳到了～",
+   "嗯哼？要看病吗？",
+   "护士在此✨",
+   "再戳要收挂号费咯～",
+   "嘿嘿，抓到你偷懒了"
+  ],
+  "pat": [
+   "嘿嘿…好舒服",
+   "摸头杀…运行效率 +10%！"
+  ],
+  "idle": [
+   "今天也要健健康康地运行哦",
+   "巡房中，一切安好！",
+   "哼哼～♪"
+  ],
+  "alert_warn": [
+   "发现一点小状况，我看看…"
+  ],
+  "alert_crit": [
+   "紧急情况！快来看看！"
+  ],
+  "resolved": [
+   "治好啦，干得漂亮！"
+  ],
+  "wake": [
+   "我在！哪里不舒服？"
+  ],
+  "listen": [
+   "我在听，说吧～"
+  ],
+  "drag": [
+   "哇啊——放我下来！"
+  ],
+  "drop": [
+   "稳稳落地～"
+  ],
+  "focus": [
+   "你忙，我小声守着～"
+  ],
+  "mute_on": [
+   "好的，我安静待着～"
+  ],
+  "mute_off": [
+   "我回来啦！"
+  ]
+ },
+ "motions": {
+  "poke": [
+   [
+    "pose:wink:2",
+    "say:poke"
+   ],
+   [
+    "pose:wave:2",
+    "say:poke"
+   ],
+   [
+    "face:eyes_surprised",
+    "hop:10",
+    "say:poke"
+   ]
+  ],
+  "pat": [
+   [
+    "face:eyes_happy",
+    "jiggle",
+    "particle:💗"
+   ]
+  ],
+  "idle": [
+   [
+    "pose:wave:2.2"
+   ],
+   [
+    "pose:think:3"
+   ],
+   [
+    "hop:6",
+    "say:idle"
+   ],
+   [
+    "pose:cheer:2"
+   ],
+   [
+    "jiggle"
+   ]
+  ],
+  "drag": [
+   [
+    "particle:💦"
+   ]
+  ],
+  "drop": [
+   [
+    "squash",
+    "jiggle"
+   ]
+  ],
+  "wake": [
+   [
+    "pose:wave:2.2"
+   ]
+  ],
+  "resolved": [
+   [
+    "pose:cheer:2",
+    "particle:✨"
+   ]
+  ]
+ },
+ "license": "© Cyber Clinic 原创形象，品牌使用见 README 商标说明"
+}

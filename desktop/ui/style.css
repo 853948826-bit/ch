@@ -1,0 +1,62 @@
+:root {
+  --accent: #2fd4e6;
+  --ink: #2c2a38;
+  --card: rgba(255, 255, 255, 0.97);
+  --line: rgba(60, 50, 90, 0.12);
+  --shadow: 0 8px 24px rgba(30, 20, 60, 0.20), 0 2px 6px rgba(30, 20, 60, 0.10);
+}
+html, body {
+  margin: 0; width: 100%; height: 100%; overflow: hidden;
+  background: transparent; user-select: none; -webkit-user-select: none;
+  font: 12.5px/1.55 -apple-system, "PingFang SC", "Microsoft YaHei UI", "Segoe UI", sans-serif;
+  color: var(--ink); cursor: default;
+}
+body { transition: opacity .4s; }
+body.focus { opacity: .35; }
+img { -webkit-user-drag: none; user-select: none; }
+.hidden { display: none !important; }
+
+/* ---------- 角色 ---------- */
+#scaler { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+#stage { position: relative; transform-origin: 50% 50%; }
+#root { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
+.layer { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
+.layer img { width: 100%; height: 100%; display: block; pointer-events: none; }
+.layer img:not([src]) { visibility: hidden; }
+[data-l="eyes"] { transition: transform .15s; }
+[data-l="holo"] { opacity: 0; transition: opacity .3s; }
+[data-l="blush"] { opacity: .35; }
+#root { transition: transform .12s; transform-origin: 50% 85%; }
+#shade { position: absolute; height: 10px; border-radius: 6px; background: rgba(0, 0, 0, 0.16); }
+#led { position: absolute; width: 9px; height: 9px; margin: -4.5px 0 0 -4.5px; border-radius: 50%;
+       border: 1.5px solid #404040; background: #34c759; box-sizing: border-box; }
+#particles { position: absolute; inset: 0; pointer-events: none; overflow: visible; }
+.particle { position: absolute; width: 30px; text-align: center; font-size: 22px; line-height: 30px; }
+
+/* ---------- 气泡 ---------- */
+#bubble {
+  position: absolute; width: 246px; padding: 10px 12px; border-radius: 14px;
+  background: var(--card); box-shadow: var(--shadow); border: 2px solid var(--accent);
+  word-break: break-word; max-height: 220px; overflow-y: auto;
+  animation: pop .16s ease-out;
+}
+#bubble-text { white-space: pre-wrap; }
+#bubble-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+#bubble-actions button { font: inherit; font-size: 12px; padding: 4px 10px; border-radius: 9px; cursor: pointer;
+                         border: 1px solid var(--line); background: #f6f6fa; color: var(--ink); }
+#bubble-actions button.primary { border-color: var(--accent); background: var(--accent); color: #fff; }
+#bubble-actions button.danger { border-color: #e5484d; background: #e5484d; color: #fff; }
+#bubble-input { margin-top: 8px; width: 100%; box-sizing: border-box; border: 1px solid var(--line); border-radius: 9px;
+                padding: 6px 9px; font: inherit; outline: none; background: #f6f6fa; color: var(--ink); }
+#bubble-input:focus { border-color: var(--accent); background: #fff; }
+@keyframes pop { from { transform: scale(.94); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+/* 软弹画布：叠在被接管的整图位置上 */
+canvas.soft { position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; }
+
+/* 悬停放大镜（仅露米） */
+#lens { position: absolute; border-radius: 50%; overflow: hidden; pointer-events: none; background: #fff;
+        border: 2px solid var(--accent); box-shadow: 0 6px 20px rgba(30, 20, 60, .28), inset 0 0 0 1px rgba(255, 255, 255, .6);
+        animation: lens-in .16s ease-out; z-index: 5; }
+#lens img { position: absolute; max-width: none; pointer-events: none; }
+@keyframes lens-in { from { transform: scale(.6); opacity: 0; } to { transform: scale(1); opacity: 1; } }

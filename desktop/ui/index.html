@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Cyber Clinic</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 角色：#scaler 负责尺寸档位缩放，#stage 及以内全部使用皮肤 viewBox 坐标（与 macOS 版图层结构一致） -->
+  <div id="scaler">
+    <div id="stage">
+      <div id="shade"></div>
+      <div id="root">
+        <div class="layer" data-l="hair_back"><img alt=""></div>
+        <div class="layer" data-l="body"><img alt=""></div>
+        <div class="layer" data-l="arm_l"><img alt=""></div>
+        <div class="layer" data-l="arm_r"><img alt=""></div>
+        <div id="head" class="layer">
+          <div class="layer" data-l="face"><img alt=""></div>
+          <div class="layer" data-l="blush"><img alt=""></div>
+          <div class="layer" data-l="eyes"><img alt=""></div>
+          <div class="layer" data-l="mouth"><img alt=""></div>
+          <div class="layer" data-l="braid"><img alt=""></div>
+          <div class="layer" data-l="bangs"><img alt=""></div>
+          <div class="layer" data-l="ahoge"><img alt=""></div>
+          <div class="layer" data-l="cap"><img alt=""></div>
+          <div id="led"></div>
+        </div>
+        <div class="layer hidden" data-l="pose"><img alt=""></div>
+        <div class="layer" data-l="holo"><img alt=""></div>
+        <div id="particles"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 文字气泡（可切换为输入框） -->
+  <div id="bubble" class="hidden">
+    <div id="bubble-text"></div>
+    <div id="bubble-actions" class="hidden"></div>
+    <form id="bubble-form" class="hidden"><input id="bubble-input" autocomplete="off" spellcheck="false"
+      placeholder="说说哪里不舒服…（回车发送，Esc 取消）"></form>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
