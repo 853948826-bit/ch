@@ -1,0 +1,11 @@
+{
+  "name": "local-cyber-clinic-web-bundle",
+  "version": "0.1.0",
+  "private": true,
+  "description": "赛博诊所：本机健康状态、诊断事件、报错诊断（MCP，连接本机守护进程 127.0.0.1:8765）",
+  "dsh": {
+    "bundle": {
+      "patch": "cordis.patch.yml"
+    }
+  }
+}

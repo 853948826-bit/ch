@@ -1,0 +1,25 @@
+[
+  {
+    "insert": [
+      {
+        "id": "cyber-clinic-mcp",
+        "name": "@deepseek-ai/dsh-mcp-client",
+        "config": {
+          "serverName": "clinic",
+          "transport": "stdio",
+          "command": "python3",
+          "args": ["-m", "clinic.mcp_server"],
+          "cwd": "/path/to/cyber-clinic",
+          "toolCallTimeoutMs": 90000,
+          "failOnStartupError": false,
+          "reconnect": {
+            "enabled": true,
+            "initialDelayMs": 1000,
+            "maxDelayMs": 10000,
+            "maxAttempts": 3
+          }
+        }
+      }
+    ]
+  }
+]

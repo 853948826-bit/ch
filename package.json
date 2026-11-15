@@ -1,10 +1,21 @@
 {
   "name": "cyber-clinic-community",
   "version": "0.3.0",
-  "private": true,
   "license": "Apache-2.0",
   "author": "万有智流（杭州）科技发展有限责任公司",
   "homepage": "https://wanyouzhiliu.com/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/853948826-bit/ch.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "os": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
   "description": "本机运行的赛博诊所巡检命令",
   "bin": {
     "cyber-clinic": "bin/cyber-clinic.cjs"

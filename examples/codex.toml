@@ -1,0 +1,16 @@
+# 赛博诊所接入 Codex：追加到 ~/.codex/config.toml（把 python3 路径和 PYTHONPATH 改成你的）
+# 只读/上报/申请类工具免审批（修复本身仍须用户在小精灵上确认）；会改变告警或形象的工具仍需审批
+[mcp_servers.clinic]
+command = "python3"
+args = ["-m", "clinic.mcp_server"]
+tool_timeout_sec = 90                     # clinic_fix_result 会等待最多 60 秒
+default_tools_approval_mode = "approve"
+
+[mcp_servers.clinic.tools.clinic_trust]
+approval_mode = "prompt"
+
+[mcp_servers.clinic.tools.clinic_skin_set]
+approval_mode = "prompt"
+
+[mcp_servers.clinic.env]
+PYTHONPATH = "/path/to/cyber-clinic"
