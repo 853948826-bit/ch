@@ -19,18 +19,18 @@ Windows 可用 `python launch.py`，也可使用系统已安装的 `py -3`。社
 npm 包只含本机巡检守护进程（诊断、修复申请、MCP 接口、默认露米素材），不含桌宠界面；需要桌宠请按上一节从源码构建。前提：Node.js 18+、Python 3.9+（Windows 需勾选“Add to PATH”）。
 
 ```sh
-# 方式一：npm 官方源（发布后可用）
+# 方式一：npm 官方源
 npm install -g cyber-clinic-community
 cyber-clinic serve                      # 前台运行，Ctrl+C 停止
 
 # 方式二：不安装，临时运行一次
 npx cyber-clinic-community serve
 
-# 方式三：直接从 GitHub 仓库安装（仓库公开后可用；可加 #版本标签 固定版本）
+# 方式三：直接从 GitHub 仓库安装（可加 #版本标签 固定版本）
 npm install -g github:853948826-bit/ch
 ```
 
-启动前确认 8765 端口空闲（已运行桌面版时先退出）。安装目录可用 `npm root -g` 查到，下面接入示例里的“赛博诊所目录”填 `$(npm root -g)/cyber-clinic-community`。
+默认使用 8765 端口；已运行桌面版时先退出，端口被占用时 `serve` 会提示原因。安装目录可用 `npm root -g` 查到，下面接入示例里的“赛博诊所目录”填 `$(npm root -g)/cyber-clinic-community`。
 
 ## 接入智能体
 
@@ -45,6 +45,10 @@ npm install -g github:853948826-bit/ch
 ## 形象客制化
 
 用自己的角色图一条命令生成皮肤包，详见 [docs/SKIN.md](docs/SKIN.md)；用图像模型批量出表情图的提示词见 [docs/SKIN_PROMPT.md](docs/SKIN_PROMPT.md)。抠图工具 `tools/skinkit.swift` 目前需要 macOS。自制皮肤放在 `skins/<名字>.local/`，只在本机使用。
+
+## 安全问题
+
+发现安全漏洞请按 [SECURITY.md](SECURITY.md) 私下报告，不要公开提 Issue。
 
 ## 许可与运营主体
 
